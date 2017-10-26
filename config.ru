@@ -1,7 +1,2 @@
-class Application
-  def call(env)
-    [200, {}, ["Bonjour tout le monde !"]]
-  end
-end
-
+require_relative 'application'
 run Application.new
