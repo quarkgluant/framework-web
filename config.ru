@@ -1,2 +1,2 @@
-require_relative 'application'
+require_relative 'lib/application'
 run Application.new
