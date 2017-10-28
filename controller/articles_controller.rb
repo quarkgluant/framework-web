@@ -1,6 +1,6 @@
 class ArticlesController < BaseController
   def index
     @articles = Article.all
-    render "index.html.erb"
+    render "articles/index.html.erb"
   end
 end
