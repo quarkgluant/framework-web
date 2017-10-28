@@ -1,12 +1,14 @@
 require 'yaml'
 require 'awesome_print'
-require_relative 'hello_controller'
+require_relative 'routes_builder'
 require_relative 'renderer'
 
 class Application
   
     def initialize
-      @routes = YAML.load_file("routes.yml")
+      builder = RoutesBuilder.new(YAML.load_file("routes.yml"))
+      builder.build
+      @routes = builder.routes
     end
 
     def call(env)
