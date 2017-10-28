@@ -6,4 +6,5 @@ gem 'rack'
 gem 'awesome_print'
 gem 'puma'
 gem 'sqlite3'
-
+gem 'pry'
+gem 'pry-doc'
