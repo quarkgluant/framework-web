@@ -1,11 +1,13 @@
 class Renderer
-  def initialize(filename)
+  def initialize(filename, binding)
     @filename = filename
+    @binding = binding
   end
   
   def render
     if File.exists?(@filename)
-      [200, File.read(@filename)]
+      template =  File.read(@filename)
+      [200, ERB.new(template).result(@binding)]
     else
       [500, "<h1>500</h1><p>No such template: #{@filename}</p>"]
     end 

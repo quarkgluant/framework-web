@@ -1,3 +1,4 @@
 "/": { via: "get", to: "root#index" }
 "/hello": { via: "get", to: "greetings#hello" }
 "/hola": { via: "get", to: "greetings#hola" }
+"/articles": { via: "get", to: "articles#index" }
