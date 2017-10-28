@@ -1,0 +1,22 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    awesome_print (1.8.0)
+    puma (3.10.0)
+    rack (2.0.3)
+    sqlite3 (1.3.13)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  awesome_print
+  puma
+  rack
+  sqlite3
+
+RUBY VERSION
+   ruby 2.3.4p301
+
+BUNDLED WITH
+   1.16.0.pre.3
