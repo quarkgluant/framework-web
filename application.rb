@@ -2,9 +2,8 @@ require 'yaml'
 require 'awesome_print'
 require_relative 'routes_builder'
 require_relative 'renderer'
-require_relative 'controller/greetings_controller'
-require_relative 'controller/root_controller'
-
+require_relative 'base_controller'
+Dir.glob("controller/*.rb") { |controller| require_relative controller }
 
 class Application
   
