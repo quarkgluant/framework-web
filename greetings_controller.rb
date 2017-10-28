@@ -1,4 +1,4 @@
-class RootController
+class GreetingsController
   def hello
     status, body = Renderer.new("hello.html").render
     [status, {}, [body]]

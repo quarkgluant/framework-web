@@ -2,6 +2,9 @@ require 'yaml'
 require 'awesome_print'
 require_relative 'routes_builder'
 require_relative 'renderer'
+require_relative 'greetings_controller'
+require_relative 'root_controller'
+
 
 class Application
   
@@ -13,16 +16,15 @@ class Application
 
     def call(env)
       # ap env
-      if route_exists?(env["REQUEST_PATH"])
-        HelloController.new.index
+      route = @routes[env["REQUEST_PATH"]]
+      if route
+        controller = Object.const_get(route['controller']).new
+        controller.send(route['method'])
       else
-        fail "Pas de route corespondante"
+        fail "No matching routes"
       end
       
     end
-    private
-    def route_exists?(path)
-      @routes[path]
-    end
+
 end
   
