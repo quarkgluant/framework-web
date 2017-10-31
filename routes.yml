@@ -1,7 +1,15 @@
-"/posts": { via: "get", to: "posts#index" }
-"/posts/show": { via: "get", to: "posts#show" }
-"/posts/delete": { via: "get", to: "posts#delete" }
-"/": { via: "get", to: "root#index" }
-"/hello": { via: "get", to: "greetings#hello" }
-"/hola": { via: "get", to: "greetings#hola" }
-"/articles": { via: "get", to: "articles#index" }
+["get", "/posts"]: "posts#index"
+["get", "/posts/show"]: "posts#show"
+["get", "/posts/delete"]: "posts#delete"
+["get", "/posts/new"]: "posts#new"
+["post", "/posts/new"]: "posts#create"
+
+# anciennes routes
+#"/posts": { via: "get", to: "posts#index" }
+#"/posts/show": { via: "get", to: "posts#show" }
+#"/posts/delete": { via: "get", to: "posts#delete" }
+#"posts/new": { via: "get", to: "posts#new" }
+#"/": { via: "get", to: "root#index" }
+#"/hello": { via: "get", to: "greetings#hello" }
+#"/hola": { via: "get", to: "greetings#hola" }
+#"/articles": { via: "get", to: "articles#index" }

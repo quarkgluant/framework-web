@@ -16,6 +16,10 @@ class PostsController < BaseController
     redirect_to "/posts"
   end
 
+  def new
+    render "posts/new.html.erb"
+  end
+
   private
 
   def redirect_to(path)
