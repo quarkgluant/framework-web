@@ -1,3 +1,6 @@
+"/posts": { via: "get", to: "posts#index" }
+"/posts/show": { via: "get", to: "posts#show" }
+"/posts/delete": { via: "get", to: "posts#delete" }
 "/": { via: "get", to: "root#index" }
 "/hello": { via: "get", to: "greetings#hello" }
 "/hola": { via: "get", to: "greetings#hola" }

@@ -1,0 +1,3 @@
+<% @posts.each do |post| %>
+  <p><b><%= post.title %></b> - <%= Time.at post.date %></p>
+<% end %>
