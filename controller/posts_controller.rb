@@ -17,7 +17,26 @@ class PostsController < BaseController
   end
 
   def new
-    render "posts/new.html.erb"
+     render "posts/new.html.erb"
+  end
+
+  def create
+     Post.create(title: params["title"],
+                 content: params["content"],
+                 date: Time.now.to_i)
+    redirect_to "/posts"
+  end
+
+  def edit
+    @post = Post[params["id"]]
+    render "posts/edit.html.erb"
+  end
+
+  def update
+    @post = Post[params["id"]]
+    Post.update(title: params["title"],
+                content: params["content"])
+    redirect_to "/posts"
   end
 
   private

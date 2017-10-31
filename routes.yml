@@ -3,6 +3,8 @@
 ["get", "/posts/delete"]: "posts#delete"
 ["get", "/posts/new"]: "posts#new"
 ["post", "/posts/new"]: "posts#create"
+["get", "/posts/edit"]: "posts#edit"
+["post", "/posts/edit"]: "posts#update"
 
 # anciennes routes
 #"/posts": { via: "get", to: "posts#index" }
