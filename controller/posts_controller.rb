@@ -11,7 +11,6 @@ class PostsController < BaseController
     else
       error_404
     end
-
   end
 
   def delete
@@ -21,6 +20,7 @@ class PostsController < BaseController
   end
 
   def new
+    # @post = Post.new
      render "posts/new.html.erb"
   end
 
@@ -42,6 +42,4 @@ class PostsController < BaseController
                 content: params["content"])
     redirect_to "/posts"
   end
-
-
 end

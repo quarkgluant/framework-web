@@ -1,12 +1,12 @@
 require 'yaml'
 require 'awesome_print'
 require 'erb'
+require_relative 'error'
 require_relative 'include_css'
 require_relative 'include_javascript'
 require_relative 'renderer'
 require_relative 'routes'
 require_relative 'route'
-require_relative 'error'
 require_relative 'base_controller'
 
 
@@ -38,7 +38,7 @@ class Application
     error_404
   rescue
     # ap req
-    error_500
+    # error_500
   end
 
 end

@@ -23,15 +23,16 @@ class Renderer
   private
 
   def result
+    # @binding.extend Content
     content = ERB.new(template).result(@binding)
-    insert_into_main_template { content }
+    insert_in_main_template { content }
   end
 
   def template
-    template =  File.read(@filename)
+    File.read(@filename)
   end
 
-  def insert_into_main_template
+  def insert_in_main_template
     ERB.new(main_template).result(binding)
   end
 
@@ -40,7 +41,7 @@ class Renderer
   end
 
   def no_template
-    puts "<h1>500</h1><p>No such template: #{@filename}</p>"
+    puts "Erreur 500 Template inconnu: #{@filename}"
     fail
   end
 

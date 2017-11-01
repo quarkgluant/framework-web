@@ -11,7 +11,7 @@ class BaseController
 
   def render(filename)
     @binding = binding
-    status, body = Renderer.new(File.join('views', filename), binding).render
+    status, body = Renderer.new(File.join('views', filename), @binding).render
     [status, {}, [body]]
   end
 
