@@ -2,16 +2,7 @@
 
 <form method="post">
 
-  <label>Titre
-    <input type="text" name="title" id="title">
-  </label>
-
-  <br />
-  <label>Contenu
-    <input type="text" name="content" id="content">
-  </label>
-
-  <br />
+  <%= partial "shared/form_fields.html.erb" %>
 
   <input type="submit" value="Créer" id="submit" onclick="return validateNewPost()">
 </form>

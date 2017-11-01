@@ -8,7 +8,15 @@ class Renderer
     if File.exists?(@filename)
       [200, result]
     else
-      [500, no_template]
+      no_template
+    end
+  end
+
+  def render_partial
+    if File.exists?(@filename)
+      ERB.new(template).result(@binding)
+    else
+      no_template
     end
   end
 
@@ -32,7 +40,8 @@ class Renderer
   end
 
   def no_template
-    "<h1>500</h1><p>No such template: #{@filename}</p>"
+    puts "<h1>500</h1><p>No such template: #{@filename}</p>"
+    fail
   end
 
   def include_css
@@ -41,5 +50,15 @@ class Renderer
 
   def include_javascript
     IncludeJavascript.call
+  end
+
+  def include_partial(filename)
+    Renderer.new(File.join('views', filename), @binding).render_partial
+  end
+
+  def include_content(label)
+    @binding.local_variable_get(label)
+  rescue
+    nil
   end
 end

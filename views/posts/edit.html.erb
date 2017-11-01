@@ -4,16 +4,7 @@
 
   <input type="hidden" name="id" value="<%= @post.id %>">
 
-  <label>Titre
-    <input type="text" name="title" value="<%= @post.title %>">
-  </label>
-
-  <br />
-  <label>Contenu
-    <input type="text" name="content" value="<%= @post.content %>">
-  </label>
-
-  <br />
+  <%= partial "shared/form_fields.html.erb" %>
 
   <input type="submit" value="Mettre à jour">
 </form>

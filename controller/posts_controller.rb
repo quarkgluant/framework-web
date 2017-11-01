@@ -6,8 +6,12 @@ class PostsController < BaseController
   end
 
   def show
-    @post = Post[params["id"]]
-    render "posts/show.html.erb"
+    if (@post = Post[params["id"]])
+      render "posts/show.html.erb"
+    else
+      error_404
+    end
+
   end
 
   def delete
