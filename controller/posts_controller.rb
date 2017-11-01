@@ -16,6 +16,7 @@ class PostsController < BaseController
   def delete
     post = Post[params['id']]
     post.delete
+    notice("Post effacé avec succès")
     redirect_to "/posts"
   end
 
@@ -28,7 +29,8 @@ class PostsController < BaseController
      Post.create(title: params["title"],
                  content: params["content"],
                  date: Time.now.to_i)
-    redirect_to "/posts"
+     notice("Post créé avec succès")
+     redirect_to "/posts"
   end
 
   def edit
@@ -40,6 +42,7 @@ class PostsController < BaseController
     post = Post[params["id"]]
     post.update(title: params["title"],
                 content: params["content"])
+    notice("Post modifié avec succès")
     redirect_to "/posts"
   end
 end

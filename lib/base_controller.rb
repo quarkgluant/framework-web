@@ -1,8 +1,9 @@
 class BaseController
   include Error
 
-  def initialize(params)
+  def initialize(params, notice)
     @params = params
+    @notice = notice
   end
 
   private
@@ -25,5 +26,17 @@ class BaseController
 
   def content_for(name, value)
     @binding.local_variable_set(name, value)
+  end
+
+  def notice?
+    @notice.value
+  end
+
+  def notice(value = nil)
+    if value
+      @notice.value = value
+    else
+      @notice.value
+    end
   end
 end

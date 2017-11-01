@@ -4,8 +4,8 @@ class Route
     @controller = @controller.capitalize + 'Controller'
   end
 
-  def exec_with(params)
-    controller = Object.const_get(@controller).new(params)
+  def exec_with(params, notice)
+    controller = Object.const_get(@controller).new(params, notice)
     controller.send(@method)
   end
 end

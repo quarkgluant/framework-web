@@ -2,12 +2,14 @@ require 'yaml'
 require 'awesome_print'
 require 'erb'
 require_relative 'error'
+require_relative 'notice'
 require_relative 'include_css'
 require_relative 'include_javascript'
 require_relative 'renderer'
 require_relative 'routes'
 require_relative 'route'
 require_relative 'base_controller'
+
 
 
 Dir.glob("controller/*.rb") {|filename| require_relative "../#{filename}"}
@@ -27,12 +29,13 @@ class Application
   def call(env)
     # ap env
     route = @routes.find(env["REQUEST_METHOD"], env["PATH_INFO"])
+    notice = Notice.new(env["rack.session"])
     req = Rack::Request.new(env)
     # pry.binding
     # ap env["REQUEST_METHOD"]
     # ap env["PATH_INFO"]
     # ap route
-    route.exec_with(req.params)
+    route.exec_with(req.params, notice)
   rescue E404 => ex
     # ap req
     error_404
