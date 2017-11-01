@@ -39,9 +39,5 @@ class PostsController < BaseController
     redirect_to "/posts"
   end
 
-  private
 
-  def redirect_to(path)
-    [303, {'Location' => path}, ['303 See Other']]
-  end
 end

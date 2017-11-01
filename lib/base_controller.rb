@@ -11,4 +11,10 @@ class BaseController
     status, body = Renderer.new(File.join('views', filename), binding).render
     [status, {}, [body]]
   end
+
+  private
+
+  def redirect_to(path)
+    [303, {'Location' => path}, ['303 See Other']]
+  end
 end
