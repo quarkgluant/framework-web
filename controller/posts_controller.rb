@@ -37,8 +37,8 @@ class PostsController < BaseController
   end
 
   def update
-    @post = Post[params["id"]]
-    Post.update(title: params["title"],
+    post = Post[params["id"]]
+    post.update(title: params["title"],
                 content: params["content"])
     redirect_to "/posts"
   end

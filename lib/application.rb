@@ -36,7 +36,7 @@ class Application
   rescue E404 => ex
     # ap req
     error_404
-  rescue
+  # rescue
     # ap req
     # error_500
   end
