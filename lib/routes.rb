@@ -4,9 +4,13 @@ class Routes
   #   routes_from_file.each {|key, value| @routes[key] = Route.new(value) }
   # end
   #
-  def initialize(file)
+  def initialize
     @routes = {}
-    eval File.read(file)
+    # eval File.read(file)
+  end
+
+  def config(&block)
+    instance_eval &block
   end
 
   def get(path, route_to:)

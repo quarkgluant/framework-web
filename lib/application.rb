@@ -21,14 +21,19 @@ Dir.glob("models/*.rb") {|filename| require_relative "../#{filename}"}
 class Application
   include Error
 
+  def self.routes
+    @@routes
+  end
+
   def initialize
-    @routes = Routes.new("./routes.rb")
+    @@routes = Routes.new
+    require "./routes.rb"
     ap @routes
   end
 
   def call(env)
     # ap env
-    route = @routes.find(env["REQUEST_METHOD"], env["PATH_INFO"])
+    route = @@routes.find(env["REQUEST_METHOD"], env["PATH_INFO"])
     notice = Notice.new(env["rack.session"])
     req = Rack::Request.new(env)
     # pry.binding
