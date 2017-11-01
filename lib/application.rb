@@ -6,8 +6,11 @@ require_relative 'routes'
 require_relative 'route'
 require_relative 'renderer'
 require_relative 'base_controller'
+
 Dir.glob("controller/*.rb") {|controller| require_relative "../#{controller}"}
+
 DB = Sequel.connect('sqlite://db/database.sqlite')
+
 Dir.glob("models/*.rb") {|filename| require_relative "../#{filename}"}
 
 class Application
@@ -36,7 +39,7 @@ class Application
       fail "No matching routes"
   end
 
-  private
+  # private
 
   # def exec(route, env)
   #   req = Rack::Request.new(env)
