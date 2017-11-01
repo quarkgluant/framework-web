@@ -22,7 +22,7 @@ class Application
   include Error
 
   def initialize
-    @routes = Routes.new(YAML.load_file("routes.yml"))
+    @routes = Routes.new("./routes.rb")
     ap @routes
   end
 

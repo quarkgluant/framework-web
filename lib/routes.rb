@@ -1,7 +1,20 @@
 class Routes
-  def initialize(routes_from_file)
+  # def initialize(routes_from_file)
+  #   @routes = {}
+  #   routes_from_file.each {|key, value| @routes[key] = Route.new(value) }
+  # end
+  #
+  def initialize(file)
     @routes = {}
-    routes_from_file.each {|key, value| @routes[key] = Route.new(value) }
+    eval File.read(file)
+  end
+
+  def get(path, route_to:)
+    @routes[["get", path]] = Route.new(route_to)
+  end
+
+  def post(path, route_to:)
+    @routes[["post", path]] = Route.new(route_to)
   end
 
   def find(verb, path)
