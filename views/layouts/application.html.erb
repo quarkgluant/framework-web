@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>Blog</title>
-  <link rel="stylesheet" type="text/css"
-        href="css/main.css">
+  <head>
+    <meta charset="utf-8">
+    <title>Blog</title>
+    <%= include_css %>
 
-</head>
+  </head>
 
-<body>
-  <h1>Blog de Pat</h1>
-  <%= yield %>
-  <script src="/js/main.js"></script>
-</body>
+  <body>
+    <h1>Blog de Pat <img src="/images/rock-you.png" /></h1>
+    <%= yield %>
+
+    <%= include_javascript %>
+  </body>
 </html>

@@ -1,10 +1,11 @@
 require 'yaml'
-require 'sequel'
 require 'awesome_print'
 require 'erb'
+require_relative 'include_css'
+require_relative 'include_javascript'
+require_relative 'renderer'
 require_relative 'routes'
 require_relative 'route'
-require_relative 'renderer'
 require_relative 'base_controller'
 
 Dir.glob("controller/*.rb") {|filename| require_relative "../#{filename}"}

@@ -3,24 +3,24 @@ class Renderer
     @filename = filename
     @binding = binding
   end
-  
+
   def render
     if File.exists?(@filename)
       [200, result]
     else
       [500, no_template]
-    end 
+    end
   end
 
   private
 
-  def template
-    template =  File.read(@filename)
-  end
-
   def result
     content = ERB.new(template).result(@binding)
     insert_into_main_template { content }
+  end
+
+  def template
+    template =  File.read(@filename)
   end
 
   def insert_into_main_template
@@ -33,5 +33,13 @@ class Renderer
 
   def no_template
     "<h1>500</h1><p>No such template: #{@filename}</p>"
+  end
+
+  def include_css
+    IncludeCSS.call
+  end
+
+  def include_javascript
+    IncludeJavascript.call
   end
 end
