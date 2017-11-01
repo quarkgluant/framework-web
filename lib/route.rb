@@ -8,5 +8,4 @@ class Route
     controller = Object.const_get(@controller).new(params)
     controller.send(@method)
   end
-
 end

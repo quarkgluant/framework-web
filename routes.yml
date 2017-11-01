@@ -5,13 +5,3 @@
 ["post", "/posts/new"]: "posts#create"
 ["get", "/posts/edit"]: "posts#edit"
 ["post", "/posts/edit"]: "posts#update"
-
-# anciennes routes
-#"/posts": { via: "get", to: "posts#index" }
-#"/posts/show": { via: "get", to: "posts#show" }
-#"/posts/delete": { via: "get", to: "posts#delete" }
-#"posts/new": { via: "get", to: "posts#new" }
-#"/": { via: "get", to: "root#index" }
-#"/hello": { via: "get", to: "greetings#hello" }
-#"/hola": { via: "get", to: "greetings#hola" }
-#"/articles": { via: "get", to: "articles#index" }

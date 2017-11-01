@@ -9,13 +9,4 @@ class Routes
       @routes[key]
     end
 
-
-
-  # private
-  #
-  # def build_route(values)
-  #   controller, method = values['to'].split('#')
-  #   controller = controller.capitalize + 'Controller'
-  #   { 'via' => values['via'], 'controller' => controller , 'method' => method }
-  # end
 end
