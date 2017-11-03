@@ -11,10 +11,11 @@ require_relative 'route'
 require_relative 'base_controller'
 
 
-
+rrvm
 Dir.glob("controller/*.rb") {|filename| require_relative "../#{filename}"}
 
-DB = Sequel.connect('sqlite://db/database.sqlite')
+# DB = Sequel.connect('sqlite://db/database.sqlite')
+DB = Sequel.connect(File.read("db/configuration").chomp)
 
 Dir.glob("models/*.rb") {|filename| require_relative "../#{filename}"}
 

@@ -28,7 +28,7 @@ class PostsController < BaseController
   def create
      Post.create(title: params["title"],
                  content: params["content"],
-                 date: Time.now.to_i)
+                 date: Time.now) # .to_i)
      notice("Post créé avec succès")
      redirect_to "/posts"
   end
