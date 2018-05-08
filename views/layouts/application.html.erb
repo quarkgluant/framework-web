@@ -2,14 +2,14 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8">
-    <title><%= include_content("title") or "BloG" %></title>
+    <title><%= include_content('title') or 'BloG' %></title>
     <%= include_css %>
     <link rel="icon" href="/images/favicon.jpeg?v1">
   </head>
 
   <body>
-    <%= include_partial "shared/menu.html.erb" %>
-    <%= include_partial "shared/notice.html.erb" %>
+    <%= include_partial 'shared/menu.html.erb' %>
+    <%= include_partial 'shared/notice.html.erb' %>
     <h1>Blog de Pat <img src="/images/rock-you.png" /></h1>
     <%= yield %>
 

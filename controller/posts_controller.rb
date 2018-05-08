@@ -26,11 +26,20 @@ class PostsController < BaseController
   end
 
   def create
-     Post.create(title: params["title"],
-                 content: params["content"],
-                 date: Time.now) # .to_i)
-     notice("Post créé avec succès")
-     redirect_to "/posts"
+    Post.create(title: params["title"],
+                content: params["content"],
+                gif: params["gif"],
+                date: Time.now)
+    notice("Post créé avec succès")
+    redirect_to "/posts"
+  end
+
+  def update
+    post = Post[params["id"]]
+    post.update(title: params["title"],
+                content: params["content"],
+                gif: params["gif"])
+    redirect_to "/posts"
   end
 
   def edit
@@ -38,11 +47,4 @@ class PostsController < BaseController
     render "posts/edit.html.erb"
   end
 
-  def update
-    post = Post[params["id"]]
-    post.update(title: params["title"],
-                content: params["content"])
-    notice("Post modifié avec succès")
-    redirect_to "/posts"
-  end
 end

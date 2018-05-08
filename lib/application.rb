@@ -11,12 +11,12 @@ require_relative 'route'
 require_relative 'base_controller'
 
 
-Dir.glob("controller/*.rb") {|filename| require_relative "../#{filename}"}
+Dir.glob('controller/*.rb') { |filename| require_relative "../#{filename}" }
 
 # DB = Sequel.connect('sqlite://db/database.sqlite')
-DB = Sequel.connect(ENV["DATABASE_URL"] || File.read("db/configuration").chomp)*
+DB = Sequel.connect(ENV['DATABASE_URL'] || File.read('db/configuration').chomp)*
 
-Dir.glob("models/*.rb") {|filename| require_relative "../#{filename}"}
+Dir.glob('models/*.rb') {|filename| require_relative "../#{filename}"}
 
 class Application
   include Error
@@ -27,14 +27,14 @@ class Application
 
   def initialize
     @@routes = Routes.new
-    require "./routes.rb"
+    require './routes.rb'
     ap @routes
   end
 
   def call(env)
     # ap env
-    route = @@routes.find(env["REQUEST_METHOD"], env["PATH_INFO"])
-    notice = Notice.new(env["rack.session"])
+    route = @@routes.find(env['REQUEST_METHOD'], env['PATH_INFO'])
+    notice = Notice.new(env['rack.session'])
     req = Rack::Request.new(env)
     # pry.binding
     # ap env["REQUEST_METHOD"]

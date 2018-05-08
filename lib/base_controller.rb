@@ -1,5 +1,6 @@
 class BaseController
   include Error
+  include ERB::Util
 
   def initialize(params, notice)
     @params = params
